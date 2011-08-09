@@ -40,8 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory.cs" />
+    <Compile Include="Generators\IInitalizationStrategy.cs" />
+    <Compile Include="Generators\IModificationStrategy.cs" />
+    <Compile Include="IBuildExpression.cs" />
+    <Compile Include="IObjectFactory.cs" />
+    <Compile Include="Configuration\ISetupExpression.cs" />
+    <Compile Include="ObjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
