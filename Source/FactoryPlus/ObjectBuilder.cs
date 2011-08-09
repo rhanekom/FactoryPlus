@@ -3,7 +3,7 @@ using FactoryPlus.Generators;
 
 namespace FactoryPlus
 {
-    public class ObjectFactory<T> : IObjectFactory<T>
+    public class ObjectBuilder<T> : IObjectBuilder<T>
     {
         #region Globals
 
@@ -14,7 +14,7 @@ namespace FactoryPlus
 
         #region Constructions
 
-        public ObjectFactory(IInitalizationStrategy<T> creationStrategy)
+        public ObjectBuilder(IInitalizationStrategy<T> creationStrategy)
         {
             this.creationStrategy = creationStrategy;
             modificationStrategies = new List<IModificationStrategy<T>>();

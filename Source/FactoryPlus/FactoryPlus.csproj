@@ -40,13 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuilderFactory.cs" />
+    <Compile Include="Configuration\Conventions.cs" />
+    <Compile Include="Generators\CustomInitializationStrategy.cs" />
+    <Compile Include="Generators\DefaultInitializationStrategy.cs" />
+    <Compile Include="IBuilderFactory.cs" />
+    <Compile Include="TypeConfiguration.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Generators\IInitalizationStrategy.cs" />
     <Compile Include="Generators\IModificationStrategy.cs" />
     <Compile Include="IBuildExpression.cs" />
-    <Compile Include="IObjectFactory.cs" />
+    <Compile Include="IObjectBuilder.cs" />
     <Compile Include="Configuration\ISetupExpression.cs" />
-    <Compile Include="ObjectFactory.cs" />
+    <Compile Include="ObjectBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

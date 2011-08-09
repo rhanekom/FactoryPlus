@@ -1,6 +1,6 @@
 ﻿namespace FactoryPlus
 {
-    public interface IObjectFactory<out T>
+    public interface IObjectBuilder<out T>
     {
         T Build();
     }

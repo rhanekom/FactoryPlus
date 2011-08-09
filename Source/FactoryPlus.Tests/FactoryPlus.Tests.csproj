@@ -53,8 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactoryTests.cs" />
-    <Compile Include="ObjectFactoryTests.cs" />
+    <Compile Include="Generation\CustomInitializationStrategyTests.cs" />
+    <Compile Include="Generation\DefaultInitializationStrategyTests.cs" />
+    <Compile Include="ObjectBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSpecific\CustomConstructor.cs" />
+    <Compile Include="TestSpecific\SimpleClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
-    <Folder Include="Generation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
