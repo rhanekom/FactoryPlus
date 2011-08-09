@@ -7,6 +7,6 @@ namespace FactoryPlus
     {
         IBuildExpression<T> Patch(Action<T> action);
         IEnumerable<T> BuildMany(int howMany);
-        IEnumerable<T> Build();
+        T Build();
     }
 }

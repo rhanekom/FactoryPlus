@@ -1,4 +1,4 @@
-﻿namespace FactoryPlus.Configuration
+﻿namespace FactoryPlus
 {
     public static class Conventions
     {

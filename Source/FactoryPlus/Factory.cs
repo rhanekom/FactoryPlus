@@ -1,23 +1,28 @@
 ﻿using System;
-using FactoryPlus.Configuration;
 
 namespace FactoryPlus
 {
     public static class Factory
     {
+        #region Globals
+
+        private static readonly IFactorySession staticSession = new FactorySession();
+
+        #endregion
+       
         public static void Setup<T>(Action<ISetupExpression> how)
         {
-            throw new System.NotImplementedException();
+            staticSession.Setup<T>(how);
         }
 
         public static IBuildExpression<T> Default<T>()
         {
-            throw new System.NotImplementedException();
+            return staticSession.Default<T>();
         }
 
         public static IBuildExpression<T> Template<T>(string fromTemplate)
         {
-            throw new System.NotImplementedException();
+            return staticSession.Template<T>(fromTemplate);
         }
     }
 }

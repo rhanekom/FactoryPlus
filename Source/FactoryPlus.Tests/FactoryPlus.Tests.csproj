@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FactoryTests.cs" />
+    <Compile Include="FactorySessionTests.cs" />
+    <Compile Include="Generation\BuilderInitializationAdapterTests.cs" />
     <Compile Include="Generation\CustomInitializationStrategyTests.cs" />
+    <Compile Include="Generation\CustomModificationStrategyTests.cs" />
     <Compile Include="Generation\DefaultInitializationStrategyTests.cs" />
     <Compile Include="ObjectBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

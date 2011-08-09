@@ -14,6 +14,12 @@ namespace FactoryPlus
 
         #region Public Members
 
+        public void Clear()
+        {
+            defaultFactories.Clear();
+            templateFactories.Clear();
+        }
+
         /// <summary>
         /// Adds a default factory for the specified type.
         /// </summary>
