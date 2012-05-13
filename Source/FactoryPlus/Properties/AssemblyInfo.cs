@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FactoryPlus")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("Riaan Hanekom")]
 [assembly: AssemblyProduct("FactoryPlus")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
+[assembly: AssemblyCopyright("Copyright © Riaan Hanekom 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.1.*")]
+[assembly: AssemblyFileVersion("0.1.*")]
+
+[assembly: InternalsVisibleTo("FactoryPlus.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100715c6a8e984b03fa94d28cd803659790434599c2d0703a06890be72d0bdd76ac02019dbe7495135921eafb5d16c92d8b20d8a170536b0793f7e60afc05aad65f7b1d7ca050cfc53337a14db3fee4d7b12258e46dd92094296e0f3cbf08bb2767c15ec1f5d599a522974ad9dde9907d5fedefb698b61bd6d5b309e88a29ffd1c2")]

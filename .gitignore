@@ -1,3 +1,4 @@
+*.ncrunchproject
 *.ncrunchsolution
 *.user
 obj
