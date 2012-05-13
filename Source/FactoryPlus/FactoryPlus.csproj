@@ -43,24 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuilderFactory.cs" />
-    <Compile Include="Generators\BuilderInitializationAdapter.cs" />
-    <Compile Include="BuildExpression.cs" />
-    <Compile Include="Conventions.cs" />
     <Compile Include="FactorySession.cs" />
-    <Compile Include="Generators\CustomInitializationStrategy.cs" />
-    <Compile Include="Generators\CustomModificationStrategy.cs" />
-    <Compile Include="Generators\DefaultInitializationStrategy.cs" />
-    <Compile Include="IBuilderFactory.cs" />
     <Compile Include="IFactorySession.cs" />
-    <Compile Include="TypeConfiguration.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Generators\IInitalizationStrategy.cs" />
-    <Compile Include="Generators\IModificationStrategy.cs" />
-    <Compile Include="IBuildExpression.cs" />
-    <Compile Include="IObjectBuilder.cs" />
     <Compile Include="ISetupExpression.cs" />
-    <Compile Include="ObjectBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

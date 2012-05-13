@@ -1,3 +1,5 @@
+*.ncrunchsolution
+*.user
 obj
 bin
 deploy
