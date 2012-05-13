@@ -22,6 +22,6 @@
         /// Builds an instance of the builder type.
         /// </summary>
         /// <returns>An instance of the builder type.</returns>
-        T Build();
+        new T Build();
     }
 }
