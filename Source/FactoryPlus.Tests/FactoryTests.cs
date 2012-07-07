@@ -1,4 +1,6 @@
-﻿namespace FactoryPlus.Tests
+﻿using System.Collections.Generic;
+
+namespace FactoryPlus.Tests
 {
     using System;
 
@@ -56,6 +58,26 @@
         }
 
         [Test]
+        public void GetMany_With_Instance_Name_Passes_Call_To_Factory_Session()
+        {
+            const string name = "dsfdsf";
+
+            mockFactorySession.Expect(x => x.GetMany<int>(name, 50)).Return(new List<int>());
+            Factory.GetMany<int>(name, 50);
+            mockFactorySession.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void GetMany_With_Passes_Call_To_Factory_Session()
+        {
+            const string name = "dsfdsf";
+
+            mockFactorySession.Expect(x => x.GetMany<int>(50)).Return(new List<int>());
+            Factory.GetMany<int>(50);
+            mockFactorySession.VerifyAllExpectations();
+        }
+
+        [Test]
         public void Define_With_Instance_Name_Passes_Call_To_Factory_Session()
         {
             const string name = "dsfdsf";
@@ -65,6 +87,8 @@
             Factory.Define(name, constructWith);
             mockFactorySession.VerifyAllExpectations();
         }
+
+
 
 
         #endregion

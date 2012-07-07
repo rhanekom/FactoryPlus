@@ -1,4 +1,7 @@
-﻿namespace FactoryPlus
+﻿using System.Collections.Generic;
+using FactoryPlus.Build;
+
+namespace FactoryPlus
 {
     using System;
 
@@ -75,6 +78,28 @@
             FactorySession.Define(name, construct);
         }
 
+        /// <summary>
+        /// Builds and returns the specified amount of instances of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <param name="howMany">How many instances of the type of object to build.</param>
+        /// <returns>A list of new instances of the specified type.</returns>
+        public static IList<T> GetMany<T>(int howMany)
+        {
+            return FactorySession.GetMany<T>(howMany);
+        }
+
+        /// <summary>
+        /// Builds and returns the specified amount of instances of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <param name="howMany">How many instances of the type of object to build.</param>
+        /// <returns>A list of new instances of the specified type.</returns>
+        public static IList<T> GetMany<T>(string name, int howMany)
+        {
+            return FactorySession.GetMany<T>(name, howMany);
+        }
 
         #endregion
     }

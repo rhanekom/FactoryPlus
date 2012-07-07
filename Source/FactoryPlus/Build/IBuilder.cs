@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace FactoryPlus.Build
+﻿namespace FactoryPlus.Build
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A builder of objects.
     /// </summary>

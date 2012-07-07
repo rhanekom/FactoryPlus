@@ -1,7 +1,7 @@
 ﻿namespace FactoryPlus.Tests.Build
 {
+    using System;
     using FactoryPlus.Build;
-
     using NUnit.Framework;
 
     [TestFixture]
@@ -13,6 +13,12 @@
         public void Build_Calls_And_Returns_Abstract_Build()
         {
             Assert.AreEqual(5, ((IBuilder) new TestBuilder()).Build());
+        }
+
+        [Test]
+        public void BuildMany_Throws_For_Negative_Numbers()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new TestBuilder().BuildMany(-1));
         }
 
         #endregion

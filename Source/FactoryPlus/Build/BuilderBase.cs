@@ -1,7 +1,8 @@
-using System.Collections.Generic;
-
 namespace FactoryPlus.Build
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// An abstract base class for building <see cref="IBuilder{T}"/>
     /// </summary>
@@ -23,6 +24,11 @@ namespace FactoryPlus.Build
         /// <returns>A list of built instances of the builder type.</returns>
         public IList<T> BuildMany(int howMany)
         {
+            if (howMany <= 0)
+            {
+                throw new ArgumentOutOfRangeException("howMany");
+            }
+
             var items = new T[howMany];
 
             for (int i = 0; i < howMany; i++)
