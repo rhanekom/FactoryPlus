@@ -45,6 +45,27 @@
             mockFactorySession.VerifyAllExpectations();
         }
 
+        [Test]
+        public void Get_With_Instance_Name_Passes_Call_To_Factory_Session()
+        {
+            const string name = "dsfdsf";
+
+            mockFactorySession.Expect(x => x.Get<int>(name)).Return(2);
+            Factory.Get<int>(name);
+            mockFactorySession.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void Define_With_Instance_Name_Passes_Call_To_Factory_Session()
+        {
+            const string name = "dsfdsf";
+
+            var constructWith = new Func<int>(() => 1);
+            mockFactorySession.Expect(x => x.Define(name, constructWith));
+            Factory.Define(name, constructWith);
+            mockFactorySession.VerifyAllExpectations();
+        }
+
 
         #endregion
     }

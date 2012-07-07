@@ -53,6 +53,29 @@
             return FactorySession.Get<T>();
         }
 
+        /// <summary>
+        /// Builds and returns an instance of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <returns>A new instance of the specified type.</returns>
+        public static T Get<T>(string name)
+        {
+            return FactorySession.Get<T>(name);
+        }
+
+        /// <summary>
+        /// Defines the construction mechanism for a named instance of a type of object.
+        /// </summary>
+        /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <param name="construct">The construction mechanism for the object.</param>
+        public static void Define<T>(string name, Func<T> construct)
+        {
+            FactorySession.Define(name, construct);
+        }
+
+
         #endregion
     }
 }

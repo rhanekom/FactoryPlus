@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Build\BuildDefinitionCollectionTests.cs" />
+    <Compile Include="Build\BuildDefinitionTests.cs" />
     <Compile Include="Build\BuilderBaseTests.cs" />
     <Compile Include="Build\DelegateBuilderTests.cs" />
     <Compile Include="FactorySessionTests.cs" />

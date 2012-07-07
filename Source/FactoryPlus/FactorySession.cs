@@ -1,34 +1,72 @@
 namespace FactoryPlus
 {
     using System;
-    using System.Collections.Generic;
     using Build;
 
     public class FactorySession : IFactorySession
     {
         #region Globals
 
-        private readonly Dictionary<Type, IBuilder> builders = new Dictionary<Type, IBuilder>();
+        private readonly BuildDefinitionCollection builders = new BuildDefinitionCollection();
 
         #endregion
 
         #region IFactorySession Members
 
+        /// <summary>
+        /// Defines the construction mechanism for a type of object.
+        /// </summary>
+        /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
+        /// <param name="construct">The construction mechanism for the object.</param>
         public void Define<T>(Func<T> construct)
         {
-            builders.Add(typeof(T), new DelegateBuilder<T>(construct));
+            builders.AddBuilder(new DelegateBuilder<T>(construct));
         }
 
+        /// <summary>
+        /// Defines the construction mechanism for a named instance of a type of object.
+        /// </summary>
+        /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <param name="construct">The construction mechanism for the object.</param>
+        public void Define<T>(string name, Func<T> construct)
+        {
+            builders.AddBuilder(name, new DelegateBuilder<T>(construct));
+        }
+
+        /// <summary>
+        /// Builds and returns an instance of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <returns>A new instance of the specified type.</returns>
         public T Get<T>()
         {
-            IBuilder builder;
+            IBuilder builder = builders.GetBuilder<T>();
 
-            if (builders.TryGetValue(typeof(T), out builder))
+            if (builder == null)
             {
-                return ((IBuilder<T>)builder).Build();
+                throw new BuildException(string.Format("No build method defined for type {0}.", typeof(T)));
             }
 
-            throw new ArgumentException(string.Format("No build method defined for type {0}.", typeof(T)));
+            return ((IBuilder<T>)builder).Build();
+        }
+
+        /// <summary>
+        /// Builds and returns an instance of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <returns>A new instance of the specified type.</returns>
+        public T Get<T>(string name)
+        {
+            IBuilder builder = builders.GetBuilder<T>(name);
+
+            if (builder == null)
+            {
+                throw new BuildException(string.Format("No build method defined for type {0}, named instance {1}.", typeof(T), name));
+            }
+
+            return ((IBuilder<T>)builder).Build();
         }
 
         #endregion

@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Build\BuildDefinition.cs" />
+    <Compile Include="Build\BuildDefinitionCollection.cs" />
     <Compile Include="Build\BuilderBase.cs" />
+    <Compile Include="Build\BuildException.cs" />
     <Compile Include="Build\DelegateBuilder.cs" />
     <Compile Include="Build\IBuilder.cs" />
     <Compile Include="Factory.cs" />

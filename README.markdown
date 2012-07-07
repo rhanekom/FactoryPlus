@@ -21,6 +21,13 @@ Factory.Define(() => new User() { Name = "Test" });
 User user = Factory.Get<User>();
 ```
 
+**Named instances**
+
+```
+Factory.Define("adminUser", () => new User() { Name = "Test", Role = Roles.Admin });
+User user = Factory.Get<User>("adminUser"); 
+```
+
 ## License ##
 
 FactoryPlus is licensed under the

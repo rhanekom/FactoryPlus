@@ -5,6 +5,9 @@
     /// <summary>
     /// A builder that builds objects using a predefined delegate.
     /// </summary>
+    /// <typeparam name="T">
+    /// The type of object that this builder builds.
+    /// </typeparam>
     public class DelegateBuilder<T> : BuilderBase<T>
     {
         #region Globals

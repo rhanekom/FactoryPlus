@@ -13,12 +13,29 @@
         /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
         /// <param name="construct">The construction mechanism for the object.</param>
         void Define<T>(Func<T> construct);
-        
+
+        /// <summary>
+        /// Defines the construction mechanism for a named instance of a type of object.
+        /// </summary>
+        /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <param name="construct">The construction mechanism for the object.</param>
+        void Define<T>(string name, Func<T> construct);
+
+
         /// <summary>
         /// Builds and returns an instance of the specified type.
         /// </summary>
         /// <typeparam name="T">The type of object to build.</typeparam>
         /// <returns>A new instance of the specified type.</returns>
         T Get<T>();
+
+        /// <summary>
+        /// Builds and returns an instance of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of object to build.</typeparam>
+        /// <param name="name">The instance name of the object.</param>
+        /// <returns>A new instance of the specified type.</returns>
+        T Get<T>(string name);
     }
 }

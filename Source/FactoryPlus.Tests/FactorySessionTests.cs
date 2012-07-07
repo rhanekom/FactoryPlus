@@ -1,8 +1,10 @@
-﻿namespace FactoryPlus.Tests
+﻿using FactoryPlus.Build;
+
+namespace FactoryPlus.Tests
 {
     using System;
-    using TestSpecific;
     using NUnit.Framework;
+    using TestSpecific;
 
     [TestFixture]
     public class FactorySessionTests
@@ -42,9 +44,32 @@
         }
 
         [Test]
+        public void Can_Create_Simple_Named_Object()
+        {
+            SimpleClass template = null;
+            const string name = "23edf";
+
+            factory.Define(name, () =>
+                {
+                    template = new SimpleClass();
+                    return template;
+                });
+
+            var instance = factory.Get<SimpleClass>(name);
+            Assert.IsNotNull(instance);
+            Assert.AreSame(template, instance);
+        }
+
+        [Test]
+        public void Undefined_Named_Instances_Throws_ArgumentException()
+        {
+            Assert.Throws<BuildException>(() => factory.Get<int>("asd"));
+        }
+
+        [Test]
         public void Undefined_Objects_Throws_ArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => factory.Get<int>());
+            Assert.Throws<BuildException>(() => factory.Get<int>());
         }
 
         #endregion
