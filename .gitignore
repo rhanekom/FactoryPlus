@@ -20,3 +20,5 @@ lint.db
 *.vs10x
 *.csproj.vs10x
 ~$*
+*~
+Source/FactoryPlus/*.nupkg

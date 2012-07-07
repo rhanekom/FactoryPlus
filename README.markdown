@@ -30,5 +30,4 @@ User user = Factory.Get<User>("adminUser");
 
 ## License ##
 
-FactoryPlus is licensed under the
-MIT License.
+FactoryPlus is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
