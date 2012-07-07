@@ -1,4 +1,6 @@
-﻿namespace FactoryPlus.Tests.Build
+﻿using System;
+
+namespace FactoryPlus.Tests.Build
 {
     using FactoryPlus.Build;
     using NUnit.Framework;
@@ -90,7 +92,7 @@
             IBuilder actual = collection.GetBuilder<SimpleClass>("name");
             Assert.IsNull(actual);
         }
-
+        
         [Test]
         public void GetBuilder_With_Name_Returns_Returns_Named_Instance()
         {

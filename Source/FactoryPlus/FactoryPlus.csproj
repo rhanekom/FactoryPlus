@@ -53,6 +53,7 @@
     <Compile Include="Build\BuildException.cs" />
     <Compile Include="Build\DelegateBuilder.cs" />
     <Compile Include="Build\IBuilder.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="FactorySession.cs" />
     <Compile Include="IFactorySession.cs" />
@@ -61,6 +62,7 @@
   <ItemGroup>
     <None Include="FactoryPlus.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

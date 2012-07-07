@@ -61,6 +61,30 @@ namespace FactoryPlus.Tests
         }
 
         [Test]
+        public void Define_With_Instance_Name_Throws_If_Name_Is_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => factory.Define<SimpleClass>(null, () => null));
+        }
+
+        [Test]
+        public void Define_With_Instance_Name_Throws_If_Construction_Function_Is_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => factory.Define<SimpleClass>("name", null));
+        }
+
+        [Test]
+        public void Define_Throws_If_Construction_Function_Is_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => factory.Define<SimpleClass>(null));
+        }
+
+        [Test]
+        public void GetNamedInstance_With_Null_Name_Throws_ArgumentException()
+        {
+            Assert.Throws<ArgumentNullException>(() => factory.Get<SimpleClass>(null));
+        }
+
+        [Test]
         public void Undefined_Named_Instances_Throws_ArgumentException()
         {
             Assert.Throws<BuildException>(() => factory.Get<int>("asd"));

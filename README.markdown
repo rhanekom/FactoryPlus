@@ -11,19 +11,19 @@ FactoryPlus is inspired by [factory_girl](https://github.com/thoughtbot/factory_
 
 **Define how to create an object**
 
-```
+```c#
 Factory.Define(() => new User() { Name = "Test" });
 ```
 
 **Create an object**
 
-```
+```c#
 User user = Factory.Get<User>();
 ```
 
 **Named instances**
 
-```
+```c#
 Factory.Define("adminUser", () => new User() { Name = "Test", Role = Roles.Admin });
 User user = Factory.Get<User>("adminUser"); 
 ```

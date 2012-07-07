@@ -2,6 +2,7 @@ namespace FactoryPlus
 {
     using System;
     using Build;
+    using Extensions;
 
     public class FactorySession : IFactorySession
     {
@@ -18,8 +19,11 @@ namespace FactoryPlus
         /// </summary>
         /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
         /// <param name="construct">The construction mechanism for the object.</param>
+        /// <exception cref="ArgumentNullException">If <param name="construct"></param> is <c>null</c>.</exception>
         public void Define<T>(Func<T> construct)
         {
+            construct.VerifyNotNull("construct");
+            
             builders.AddBuilder(new DelegateBuilder<T>(construct));
         }
 
@@ -29,8 +33,13 @@ namespace FactoryPlus
         /// <typeparam name="T">The type of object to define the construction mechanism for.</typeparam>
         /// <param name="name">The instance name of the object.</param>
         /// <param name="construct">The construction mechanism for the object.</param>
+        /// <exception cref="ArgumentNullException">If <param name="name"></param> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException">If <param name="construct"></param> is <c>null</c>.</exception>
         public void Define<T>(string name, Func<T> construct)
         {
+            name.VerifyNotNull("name");
+            construct.VerifyNotNull("construct");
+            
             builders.AddBuilder(name, new DelegateBuilder<T>(construct));
         }
 
@@ -39,6 +48,7 @@ namespace FactoryPlus
         /// </summary>
         /// <typeparam name="T">The type of object to build.</typeparam>
         /// <returns>A new instance of the specified type.</returns>
+        /// <exception cref="BuildException">If no build definition has been defined for the specified type.</exception>
         public T Get<T>()
         {
             IBuilder builder = builders.GetBuilder<T>();
@@ -57,8 +67,12 @@ namespace FactoryPlus
         /// <typeparam name="T">The type of object to build.</typeparam>
         /// <param name="name">The instance name of the object.</param>
         /// <returns>A new instance of the specified type.</returns>
+        /// <exception cref="ArgumentNullException">If <param name="name"></param> is <c>null</c>.</exception>
+        /// <exception cref="BuildException">If no build definition has been defined with the specified name.</exception>
         public T Get<T>(string name)
         {
+            name.VerifyNotNull("name");
+
             IBuilder builder = builders.GetBuilder<T>(name);
 
             if (builder == null)
