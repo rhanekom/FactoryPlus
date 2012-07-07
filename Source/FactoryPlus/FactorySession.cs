@@ -1,10 +1,8 @@
-using System;
-
 namespace FactoryPlus
 {
+    using System;
     using System.Collections.Generic;
-
-    using FactoryPlus.Build;
+    using Build;
 
     public class FactorySession : IFactorySession
     {

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace FactoryPlus
+﻿namespace FactoryPlus
 {
+    using System;
+
     /// <summary>
     /// A factory for use in a single session.  Responsible for storing configuration and constructing objects as needed.
     /// </summary>

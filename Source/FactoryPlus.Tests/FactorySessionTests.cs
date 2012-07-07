@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using FactoryPlus.Tests.TestSpecific;
-using NUnit.Framework;
-
-namespace FactoryPlus.Tests
+﻿namespace FactoryPlus.Tests
 {
     using System;
+    using TestSpecific;
+    using NUnit.Framework;
 
     [TestFixture]
     public class FactorySessionTests
