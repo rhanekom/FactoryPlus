@@ -1,8 +1,8 @@
-﻿using FactoryPlus.Build;
-
-namespace FactoryPlus.Tests
+﻿namespace FactoryPlus.Tests
 {
     using System;
+    using System.Collections.Generic;
+    using FactoryPlus.Build;
     using NUnit.Framework;
     using TestSpecific;
 
@@ -94,6 +94,55 @@ namespace FactoryPlus.Tests
         public void Undefined_Objects_Throws_ArgumentException()
         {
             Assert.Throws<BuildException>(() => factory.Get<int>());
+        }
+
+        [Test]
+        public void GetMany_Creates_Many_Instances_Of_The_Specified_Type()
+        {
+            int counter = 0;
+
+            factory.Define(() =>
+                {
+                    counter++;
+                    var template = new SimpleClass { Counter = counter };
+                    return template;
+                });
+
+            const int howMany = 50;
+            IList<SimpleClass> instances = factory.GetMany<SimpleClass>(howMany);
+            
+            Assert.IsNotNull(instances);
+            Assert.AreEqual(howMany, instances.Count);
+
+            for (int i = 1; i < instances.Count; i++)
+            {
+                Assert.AreNotEqual(instances[i].Counter, instances[i - 1].Counter);
+            }
+        }
+
+        [Test]
+        public void GetMany_By_Instance_Name_Creates_Many_Instances_Of_The_Specified_Type()
+        {
+            int counter = 0;
+            const string name = "21fsdf";
+
+            factory.Define(name, () =>
+                {
+                    counter++;
+                    var template = new SimpleClass { Counter = counter };
+                    return template;
+                });
+
+            const int howMany = 50;
+            IList<SimpleClass> instances = factory.GetMany<SimpleClass>(name, howMany);
+
+            Assert.IsNotNull(instances);
+            Assert.AreEqual(howMany, instances.Count);
+
+            for (int i = 1; i < instances.Count; i++)
+            {
+                Assert.AreNotEqual(instances[i].Counter, instances[i - 1].Counter);
+            }
         }
 
         #endregion

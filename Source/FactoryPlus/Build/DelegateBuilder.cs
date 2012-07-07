@@ -36,6 +36,10 @@
 
         #region BuilderBase<T> Members
 
+        /// <summary>
+        /// Builds this instance.
+        /// </summary>
+        /// <returns>A constructed instance.</returns>
         public override T Build()
         {
             return constructWith();
